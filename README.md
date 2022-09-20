@@ -1,10 +1,6 @@
-# Capstone-project-gym
+# Awesome Book Store Project
 
-> This is the first Milestone project that I am going to build which is A website for a gym. This project is created with HTML, CSS AND JS and has some functionality like the hamburger menu, adapting to different screen sizes(Mobile and Desktop Version). For now only the [Home] and [about] page is working. I special thanks to Mr. Cindy Shin for lating as to use their website design.
-
-## Desciption video about the Project
-
-https://github.com/Hidar37/gym-project/pull/url
+> This is a project that i have created using HTML,CSS and js. For now it have the functionality of storing the book: name and author and you   can removed also the specific book. The data will be stored in user browser. 
 
 ## Built With
 
@@ -12,23 +8,16 @@ https://github.com/Hidar37/gym-project/pull/url
 - CSS
 - JS
 
-## Live Demo
-
-https://hidar37.github.io/gym-project/
-
 ## Author
 
 👤 **Author1**
 
 - GitHub: [@Hidar37](https://github.com/Hidar37)
+- GitHub: [@AshwinCarvalho999](https://github.com/AshwinCarvalho999)
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-- Special thanks to Cindy Shin in Behance[https://www.behance.net/adagio07]. For lating as to use this desgin.
 
 ## 📝 License
 
