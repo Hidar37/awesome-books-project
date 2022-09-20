@@ -3,64 +3,62 @@
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable no-plusplus */
 // ====================================== My Code ====================
+const bookContainer = document.getElementById('book-container');
+const bookName = document.getElementById('title');
+const bookAuthor = document.getElementById('author');
+let bookString;
+let bookArrayObject;
+let bookArray = [];
 
-// HTML: each section of the page links
-const showBook = document.getElementById('show-books');
-const addBookBtn = document.getElementById('add-book');
-
-// Show All store Books
-function showAllStoredBooks() {
-  // Get Data from local storge
-  const allBook = JSON.parse(localStorage.getItem('books'));
-  for (let x = 0; x < allBook.length; x++) {
-    // Add Books data to page
-    const addToShowBookSection = `<p>${allBook[x].bookName} by ${allBook[x].bookWriter}</p>
-  <button id="remove">Remove</button>
-  <hr>`;
-    showBook.insertAdjacentHTML('beforeend', addToShowBookSection);
-  }
+// check if we have already have some book in local storge.
+if (localStorage.getItem('BOOKS')) {
+  bookString = localStorage.getItem('BOOKS');
+  bookArrayObject = JSON.parse(bookString);
+  bookArray = bookArrayObject;
 }
 
-// Add Books
-function addBook(bookTitle, bookAuthor) {
-  // Store Data to local Storge
-  const getBook = JSON.parse(localStorage.getItem('books'));
-  const bookObject = {
-    bookName: bookTitle,
-    bookWriter: bookAuthor,
-  };
-  getBook.push(bookObject);
-  localStorage.setItem('books', JSON.stringify(getBook));
-  // Add Books data to page
-  const addToShowBookSection = `<p>${bookTitle} by ${bookAuthor}</p>
-  <button id="remove">Remove</button>
-  <hr>`;
-  showBook.insertAdjacentHTML('beforeend', addToShowBookSection);
-  // Empty the value of inputs 
-  document.getElementById('title').value = '';
-  document.getElementById('author').value = '';
+function addBook() {
+  const bookObject = {};
+  bookObject.title = bookName.value;
+  bookObject.author = bookAuthor.value;
+  bookArray.push(bookObject);
+  localStorage.setItem('BOOKS', JSON.stringify(bookArray));
+  bookContainer.innerText = '';
 }
 
-// ================================= Main Body ==========================
+function removeElement(elment1, elment2) {
+  elment1.remove();
+  elment2.remove();
+}
 
-// show Added book while loading the page
-window.addEventListener('load', () => {
-  // If: we have all ready books stored show it. 
-  if (window.localStorage.getItem('books')) {
-    showAllStoredBooks();
-  }
+function displayBooks() {
+  bookArray.forEach((item, index) => {
+    const elementNode = document.createElement('p');
+    const btnElement = document.createElement('button');
+    elementNode.setAttribute('class', 'p-tag');
+    btnElement.setAttribute('class', 'close-btn');
+    // Get Title and Author
+    elementNode.appendChild(document.createTextNode(`${item.title} by ${item.author}`));
+    btnElement.appendChild(document.createTextNode('Remove'));
+    // Add: <p> and <button> tag in page
+    bookContainer.append(elementNode, btnElement);
+    // Empty the input after adding the book
+    bookName.value = '';
+    bookAuthor.value = '';
+    // remove Button logic
+    btnElement.addEventListener('click', () => {
+      bookArray = JSON.parse(localStorage.getItem('BOOKS'));
+      bookArray.splice(index, 1);
+      localStorage.setItem('BOOKS', JSON.stringify(bookArray));
+      removeElement(elementNode, btnElement);
+    });
+  });
+}
 
-  // Else: Create a new local Storage for latter book storing.
-  else {
-    const bookList = [];
-    window.localStorage.setItem('books', JSON.stringify(bookList));
-  }
+// Add Book Event Lessoner
+document.getElementById('form').addEventListener('submit', (event) => {
+  event.preventDefault();
+  addBook();
+  displayBooks();
 });
-
-// Add Book while Clicking the Add Button
-addBookBtn.addEventListener('click', () => {
-  // Get The value of input that user have typed
-  const title = document.getElementById('title').value;
-  const author = document.getElementById('author').value;
-  addBook(title, author);
-});
+displayBooks();
