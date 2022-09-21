@@ -32,27 +32,38 @@ function removeElement(elment1, elment2) {
 }
 
 function displayBooks() {
-  bookArray.forEach((item, index) => {
-    const elementNode = document.createElement('p');
-    const btnElement = document.createElement('button');
-    elementNode.setAttribute('class', 'p-tag');
-    btnElement.setAttribute('class', 'close-btn');
-    // Get Title and Author
-    elementNode.appendChild(document.createTextNode(`${item.title} by ${item.author}`));
-    btnElement.appendChild(document.createTextNode('Remove'));
-    // Add: <p> and <button> tag in page
-    bookContainer.append(elementNode, btnElement);
-    // Empty the input after adding the book
-    bookName.value = '';
-    bookAuthor.value = '';
-    // remove Button logic
-    btnElement.addEventListener('click', () => {
-      bookArray = JSON.parse(localStorage.getItem('BOOKS'));
-      bookArray.splice(index, 1);
-      localStorage.setItem('BOOKS', JSON.stringify(bookArray));
-      removeElement(elementNode, btnElement);
+  if (bookArray.length > 0) {
+    bookArray.forEach((item, index) => {
+      const elementDiv = document.createElement('div');
+      const elementNode = document.createElement('p');
+      const btnElement = document.createElement('button');
+      elementDiv.setAttribute('id', 'book-info');
+      elementNode.setAttribute('class', 'p-tag');
+      btnElement.setAttribute('class', 'close-btn');
+      // Get Title and Author
+      elementNode.appendChild(document.createTextNode(`${item.title} by ${item.author}`));
+      btnElement.appendChild(document.createTextNode('Remove'));
+      // Add: <p> and <button> tag in page
+      bookContainer.appendChild(elementDiv);
+      elementDiv.append(elementNode, btnElement);
+      // Empty the input after adding the book
+      bookName.value = '';
+      bookAuthor.value = '';
+      // remove Button logic
+      btnElement.addEventListener('click', () => {
+        bookArray = JSON.parse(localStorage.getItem('BOOKS'));
+        bookArray.splice(index, 1);
+        localStorage.setItem('BOOKS', JSON.stringify(bookArray));
+        removeElement(elementNode, btnElement);
+        displayBooks();
+      });
     });
-  });
+  } else {
+    const errorNode = document.createElement('p');
+    errorNode.setAttribute('class', 'error');
+    errorNode.appendChild(document.createTextNode('No record found. Please store some books first.'));
+    bookContainer.appendChild(errorNode);
+  }
 }
 
 // Add Book Event Lessoner
