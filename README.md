@@ -1,6 +1,6 @@
 # Awesome Book Store Project
 
-> This is a project that I and my coding partner have created using HTML,CSS and js. For now it have the functionality of storing the book: name and author and you can removed also the specific book. The data will be stored in user browser. 
+> This is a project that I have created using HTML,CSS and js. For now it have the functionality of storing the book: name and author and you can removed also the specific book. The data will be stored in user browser. 
 
 ## Built With
 
@@ -13,12 +13,6 @@
 👤 **Author1**
 
 - GitHub: [@Hidar37](https://github.com/Hidar37)
-
-👤 **Author2**
-
-- GitHub: [@AshwinCarvalho999](https://github.com/AshwinCarvalho999)
-
-## Show your support
 
 Give a ⭐️ if you like this project!
 
