@@ -14,7 +14,7 @@
 
 - GitHub: [@Hidar37](https://github.com/Hidar37)
 
-👤 **Author1**
+👤 **Author2**
 
 - GitHub: [@AshwinCarvalho999](https://github.com/AshwinCarvalho999)
 
