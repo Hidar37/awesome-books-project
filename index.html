@@ -4,29 +4,70 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Awesoem Book Store</title>
-    <!-- Fontawesome cdn -->
-    <!-- <script src="https://kit.fontawesome.com/27219c429c.js" crossorigin="anonymous"></script> -->
-    <!-- Main css style -->
-    <link rel="stylesheet" href="source/style/style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Books Collection</title>
   </head>
-
   <body>
     <header>
-      <h1>All awesome books</h1>
+      <div class="header-title"><h3>Awesome Books</h3></div>
+      <div class="action-list">
+        <h4 id="list">List</h4>
+        <h4 id="add">Add new</h4>
+        <h4 id="contact-me">Contact</h4>
+      </div>
     </header>
-    <section id="book-container">
-      <!-- Adding the book lists -->
+    <p class="add-date"></p>
+
+    <section class="book-list" id="action-1">
+      <div class="books">
+        <h2>All awesome Books</h2>
+      </div>
+      <div class="list-books">
+        <!-- Populate using javaScript -->
+      </div>
+      <hr />
     </section>
-    <section id="form-section">
-      <h2 class="form-header">Add a new book</h2>
-      <form action="index.html" method="post" id="form">
-        <input type="text" id="title" placeholder="Book Title" />
-        <input type="text" id="author" placeholder="Book Author" />
-        <input type="submit" value="Add" />
-      </form>
+
+    <section class="add-book action" id="action-2">
+      <h2>Add a new book</h2>
+      <div>
+        <input
+          type="text"
+          id="book-title"
+          name="title"
+          class="title"
+          placeholder="Title"
+        />
+        <input
+          type="text"
+          id="book-author"
+          name="author"
+          class="author"
+          placeholder="Author"
+        />
+        <button type="button" id="submit-btn">ADD</button>
+      </div>
     </section>
-    <!-- Add Book.js -->
-    <script src="source/js/add-book.js"></script>
+
+    <section class="contact action" id="action-3">
+      <h2>Contact Information</h2>
+      <div class="contact-msg">
+        <p>Do you have any questions or you just want to say "Hello"?</p>
+        <p>You can reach out to us!</p>
+      </div>
+      <ul>
+        <li>Our email: ashwincarvalho@gmail.com</li>
+        <li>Our phone number: +917378931254</li>
+        <li>
+          Our address: Salbhatwadi(Giriz), Vasai(west), Mumbai, Maharashtra.
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>Copyright - BookCollection MD</p>
+    </footer>
+
+    <script src="/script.js"></script>
   </body>
 </html>
