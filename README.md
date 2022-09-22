@@ -1,6 +1,6 @@
 # Awesome Book Store Project
 
-> This is a project that I and my coding partner have created using HTML,CSS and js. We have created its whole functionality with adding and removing books and
+> This is a project that I and my coding partner have created using HTML,CSS and js. We have created its whole functionality with adding and removing books and adding navigation.
 
 ## Built With
 
